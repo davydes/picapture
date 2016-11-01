@@ -11,14 +11,24 @@ gem 'coffee-rails', '~> 4.2'
 gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
-
-group :development, :test do
-  gem 'byebug', platform: :mri
-  gem 'rspec-rails', '~> 3.5'
-end
+gem 'slim'
 
 group :development do
+  gem 'letter_opener'
+  gem 'foreman'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test, :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-rails'
+end
+
+group :test do
+  gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end

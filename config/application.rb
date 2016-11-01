@@ -23,7 +23,7 @@ module Picapture
       g.fixture_replacement :factory_girl, :dir => 'spec/factories'
       g.template_engine :slim
       g.stylesheet_engine :scss
-      g.javascript_engine :coffeescript
+      g.javascript_engine :coffee
     end
   end
 end

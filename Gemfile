@@ -11,7 +11,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
-gem 'slim'
+gem 'slim-rails'
 
 group :development do
   gem 'letter_opener'

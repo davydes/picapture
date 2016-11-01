@@ -12,6 +12,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'slim-rails'
+gem 'devise'
 
 group :development do
   gem 'letter_opener'

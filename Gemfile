@@ -15,6 +15,7 @@ gem 'slim-rails'
 gem 'devise'
 gem 'simple_form'
 gem 'bootstrap-sass'
+gem 'turbolinks'
 
 group :development do
   gem 'letter_opener'

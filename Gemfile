@@ -10,8 +10,9 @@ gem 'sinatra', github: 'sinatra/sinatra', branch: :master
 gem 'therubyracer', platforms: :ruby
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
-gem 'devise-async'
+gem 'devise-i18n'
 gem 'simple_form'
+gem 'rails-i18n', '~> 5.0.0'
 
 gem 'turbolinks'
 gem 'bootstrap-sass'
@@ -27,6 +28,7 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'letter_opener'
 end
 
 group :test, :development do

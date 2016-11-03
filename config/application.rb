@@ -18,6 +18,10 @@ Bundler.require(*Rails.groups)
 
 module Picapture
   class Application < Rails::Application
+    config.i18n.available_locales = [:ru, :en]
+    config.i18n.default_locale = :ru
+    config.active_job.queue_adapter = :resque
+
     config.generators do |g|
       g.test_framework  :rspec, :fixture => true
       g.fixture_replacement :factory_girl, :dir => 'spec/factories'
@@ -25,7 +29,5 @@ module Picapture
       g.stylesheet_engine :scss
       g.javascript_engine :coffee
     end
-
-    config.active_job.queue_adapter = :resque
   end
 end

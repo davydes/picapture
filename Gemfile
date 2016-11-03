@@ -5,19 +5,21 @@ ruby '2.3.1'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
+gem 'resque'
+gem 'sinatra', github: 'sinatra/sinatra', branch: :master
+gem 'therubyracer', platforms: :ruby
+gem 'jbuilder', '~> 2.5'
+gem 'devise'
+gem 'devise-async'
+gem 'simple_form'
+
+gem 'turbolinks'
+gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
-gem 'therubyracer', platforms: :ruby
-gem 'jquery-rails'
-gem 'jbuilder', '~> 2.5'
 gem 'slim-rails'
-gem 'devise'
-gem 'simple_form'
-gem 'bootstrap-sass'
-gem 'turbolinks'
-gem 'resque'
-gem 'sinatra', github: 'sinatra/sinatra', branch: :master
+gem 'jquery-rails'
 
 group :development do
   gem 'letter_opener'

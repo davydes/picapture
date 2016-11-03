@@ -13,6 +13,8 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'slim-rails'
 gem 'devise'
+gem 'simple_form'
+gem 'bootstrap-sass'
 
 group :development do
   gem 'letter_opener'

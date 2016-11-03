@@ -1,3 +1,4 @@
-// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
+@import "bootswatch/cosmo/variables";
 @import "bootstrap";
+@import "bootswatch/cosmo/bootswatch";

@@ -25,5 +25,7 @@ module Picapture
       g.stylesheet_engine :scss
       g.javascript_engine :coffee
     end
+
+    config.active_job.queue_adapter = :resque
   end
 end

@@ -16,6 +16,8 @@ gem 'devise'
 gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'turbolinks'
+gem 'resque'
+gem 'sinatra', github: 'sinatra/sinatra', branch: :master
 
 group :development do
   gem 'letter_opener'

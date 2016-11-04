@@ -2,6 +2,7 @@ class OauthService
   attr_reader :auth_data
 
   def initialize(auth_data)
+    raise ArgumentError if auth_data.nil?
     @auth_data = auth_data.kind_of?(Hash) ?
       OmniAuth::AuthHash.new(auth_data) :
       auth_data
@@ -9,7 +10,7 @@ class OauthService
 
   def find_or_create_user
     user = authentication.try(:user)
-    unless user
+    if user.nil?
       user = create_user
       create_authentication(user)
     end

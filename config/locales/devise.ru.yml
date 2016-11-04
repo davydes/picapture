@@ -1,0 +1,4 @@
+ru:
+  devise:
+    omniauth_callbacks:
+      need_password_to_bind: Для привязки к сущетвующему аккаунту требуется ввести пароль

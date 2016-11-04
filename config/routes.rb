@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   get 'welcome/index'
   root to: 'welcome#index'
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-
-  namespace :users, as: :user do
-    resources :authentications, only: [:create, :new]
-  end
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
 
   authenticate :user do
     mount Resque::Server, at: '/jobs'

@@ -1,6 +1,0 @@
-ru:
-  users:
-    authentications:
-      new:
-        create_authentication: Привязать авторизацию к аккаунту %{account}
-        create: Привязать

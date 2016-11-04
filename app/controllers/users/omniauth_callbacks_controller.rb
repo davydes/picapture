@@ -1,8 +1,8 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def callback
-    if current_user || service.need_to_bind?
+    if user_signed_in? || service.need_to_bind?
       session['devise.auth_data'] = auth_data
-      redirect_to new_users_authentication_path
+      redirect_to new_user_authentication_path
     else
       user = service.find_or_create_user
       sign_in_and_redirect user, event: :authentication

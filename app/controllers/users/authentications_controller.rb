@@ -7,12 +7,11 @@ class Users::AuthenticationsController < ApplicationController
   def create
     if user.valid_password?(params[:user][:password])
       service.create_authentication(user)
-      sign_in user unless current_user
       session.delete('devise.auth_data')
-      flash[:notice] = I18n.t('.success')
+      flash[:notice] = I18n.t("#{translation_scope}.successfully_created")
       redirect_to :root
     else
-      flash[:alert] = I18n.t('.error')
+      flash[:alert] = I18n.t("#{translation_scope}.password_incorrect")
       render :new
     end
   end
@@ -34,4 +33,8 @@ class Users::AuthenticationsController < ApplicationController
     @user ||= (current_user || service.binding_user)
   end
   helper_method :user
+
+  def translation_scope
+    'users.authentications'
+  end
 end

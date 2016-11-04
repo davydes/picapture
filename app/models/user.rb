@@ -3,6 +3,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable
 
+  has_many :authentications
+
   def send_devise_notification(notification, *args)
       devise_mailer.send(notification, self, *args).deliver_later
   end

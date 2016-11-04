@@ -13,6 +13,9 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'simple_form'
 gem 'rails-i18n', '~> 5.0.0'
+gem 'omniauth-vkontakte'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 
 gem 'turbolinks'
 gem 'bootstrap-sass'
@@ -36,6 +39,7 @@ group :test, :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
+  gem 'pry-nav'
 end
 
 group :test do

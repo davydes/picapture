@@ -246,9 +246,9 @@ Devise.setup do |config|
 
   # ==> OmniAuth
   secrets = Rails.application.secrets
-  config.omniauth :facebook,      secrets.fb_key, secrets.fb_secret
-  config.omniauth :vkontakte,     secrets.vk_key, secrets.vk_secret
-  config.omniauth :google_oauth2, secrets.go_key, secrets.go_secret
+  config.omniauth :facebook,      secrets.fb_key, secrets.fb_secret, scope: 'email'
+  config.omniauth :vkontakte,     secrets.vk_key, secrets.vk_secret, scope: 'email'
+  config.omniauth :google_oauth2, secrets.go_key, secrets.go_secret, scope: 'email'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

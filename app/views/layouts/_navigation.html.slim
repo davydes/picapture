@@ -1,0 +1,13 @@
+nav.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      #logo-icon
+      = link_to "Picapture", root_path, class: 'navbar-brand'
+      button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse"]
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        == render 'layouts/navigation_links'

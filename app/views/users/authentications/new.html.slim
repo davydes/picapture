@@ -1,7 +1,7 @@
-h2= t(".create_authentication")
-= simple_form_for(user, url: users_authentications_path, html: { method: :post }) do |f|
+h2= t(".create_authentication", account: user.email)
+= simple_form_for(user, url: user_authentications_path, html: { method: :post }) do |f|
   = f.error_notification
   .form-inputs
     = f.input :password, required: true, autofocus: true
   .form-actions
-    = f.button :submit, t(".create_authentication")
+    = f.button :submit, t(".create")

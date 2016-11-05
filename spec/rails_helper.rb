@@ -15,12 +15,16 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
+  # Testing omniauth providers
+  config.add_setting :providers, default: [:facebook, :vkontakte, :google_oauth2]
+
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
   config.include Devise::Test::ControllerHelpers, type: :controller
+  config.extend  DeviseMacroses, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
   config.include Devise::Test::IntegrationHelpers, type: :feature
   config.include FactoryGirl::Syntax::Methods

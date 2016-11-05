@@ -1,23 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe Users::OmniauthCallbacksController, type: :controller do
+  providers = RSpec.configuration.providers
+  mapping_user
+
   def mock_omniauth(provider, data)
     OmniAuth.config.test_mode = true
     OmniAuth.config.add_mock(provider, data)
-    request.env["devise.mapping"] = Devise.mappings[:user]
     request.env["omniauth.auth"] = OmniAuth.config.mock_auth[provider]
   end
 
   after do
     OmniAuth.config.test_mode = false
-    [:facebook, :vkontakte, :google_oauth2].each do |provider|
+    providers.each do |provider|
       OmniAuth.config.mock_auth[provider] = nil
     end
-    request.env["devise.mapping"] = nil
     request.env["omniauth.auth"] = nil
   end
 
-  [:facebook, :vkontakte, :google_oauth2].each do |provider|
+  providers.each do |provider|
     context "sign in with #{provider}" do
       before do
         @user = create :user, provider

@@ -9,7 +9,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       # в базе, просим его войти, потом привязываем
       bind_via_sessions_new
     else
-      # Вообще новый пользователь, регаем его немедля!
+      # Пользователь был раннее приязан или
+      # вообще новый пользователь, регаем его немедля!
       user = service.find_or_create_user
       sign_in_and_redirect user, event: :authentication
     end

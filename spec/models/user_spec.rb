@@ -1,5 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'validations' do
+    subject { build :user }
+    it { expect(subject).to be_valid }
+    it do
+      subject.email = nil
+      expect(subject).not_to be_valid
+      expect(subject.errors.messages.keys).to eq [:email]
+    end
+  end
 end

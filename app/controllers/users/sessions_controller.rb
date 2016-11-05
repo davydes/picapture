@@ -1,4 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
+  include OmniauthControllerWithService
+
   before_action :setup_email,           only: [:new],    if: -> { oauth? }
   after_action  :create_authentication, only: [:create], if: -> { oauth? && valid_user? }
 
@@ -10,18 +12,5 @@ class Users::SessionsController < Devise::SessionsController
 
   def valid_user?
     current_user == service.binding_user
-  end
-
-  def create_authentication
-    service.create_authentication(current_user)
-  end
-
-  def oauth?
-    params[:oauth] == 'true' && service.present?
-  end
-  helper_method :oauth?
-
-  def service
-    @oauth_service ||= OauthService.new(session['oauth.data']) rescue nil
   end
 end

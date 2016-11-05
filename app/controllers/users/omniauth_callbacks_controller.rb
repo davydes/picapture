@@ -1,5 +1,10 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def callback
+    # Пользователь может запретить передачу email, отправляем повторный запрос
+    if auth_data.info.email.blank?
+      return redirect_to [:user, auth_data.provider.to_sym, :omniauth, :authorize, {auth_type: 'rerequest', scope: 'email'}]
+    end
+
     if user_signed_in?
       # Когда пользователь залогинен, привяжем к нему, через
       # devise контроллер изменения учетных данных
@@ -16,16 +21,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
-  alias_method :vkontakte,     :callback
   alias_method :google_oauth2, :callback
-
-  # In the new Facebook login dialog the user can decline to provide email address.
-  def facebook
-    if auth_data.info.email.blank?
-      return redirect_to user_facebook_omniauth_authorize_path(auth_type: 'rerequest', scope: 'email')
-    end
-    callback
-  end
+  alias_method :facebook,      :callback
+  alias_method :vkontakte,     :callback
 
   private
 

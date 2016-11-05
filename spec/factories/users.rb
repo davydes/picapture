@@ -8,9 +8,11 @@ FactoryGirl.define do
     password 'testpassword'
     confirmed_at { 3.days.ago }
 
-    trait :fb do
-      after :create do |user|
-        create :authentication, :fb, user: user
+    [:vkontakte, :facebook, :google_oauth2].each do |provider|
+      trait provider do
+        after :create do |user|
+          create :authentication, provider: provider, user: user
+        end
       end
     end
 

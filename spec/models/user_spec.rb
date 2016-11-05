@@ -10,4 +10,9 @@ RSpec.describe User, type: :model do
       expect(subject.errors.messages.keys).to eq [:email]
     end
   end
+
+  context 'members' do
+    it { expect(subject).to respond_to :authentications }
+    it { expect(subject).to respond_to :send_devise_notification}
+  end
 end

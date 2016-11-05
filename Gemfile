@@ -54,4 +54,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'capybara-screenshot'
   gem 'poltergeist'
+  gem 'simplecov'
 end

@@ -1,5 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "welcome/index.html.slim", type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe 'welcome/index', type: :view do
+  before { render }
+  it { expect(rendered).to match('Welcome') }
 end

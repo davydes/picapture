@@ -46,6 +46,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def service
-    @service ||= OauthService.new(auth_data) rescue nil
+    @oauth_service ||= OauthService.new(auth_data) rescue nil
   end
 end

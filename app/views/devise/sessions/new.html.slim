@@ -5,7 +5,7 @@ h2
     = f.input :email, required: true, autofocus: true, readonly: @email.present?, input_html: { value: @email }
     = f.input :password, required: true
     = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-    - if oauth?
+    - if bind_oauth?
       = hidden_field_tag :oauth, 'true'
   .form-actions
     = f.button :submit, t(".sign_in")

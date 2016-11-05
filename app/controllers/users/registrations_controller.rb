@@ -1,7 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   include OmniauthControllerWithService
 
-  after_action :create_authentication, only: [:update], if: -> { oauth? && valid_password?}
+  after_action :create_authentication, only: [:update], if: -> { bind_oauth? && valid_password?}
 
   protected
 

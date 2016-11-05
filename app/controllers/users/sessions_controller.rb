@@ -1,8 +1,8 @@
 class Users::SessionsController < Devise::SessionsController
   include OmniauthControllerWithService
 
-  before_action :setup_email,           only: [:new],    if: -> { oauth? }
-  after_action  :create_authentication, only: [:create], if: -> { oauth? && valid_user? }
+  before_action :setup_email,           only: [:new],    if: -> { bind_oauth? }
+  after_action  :create_authentication, only: [:create], if: -> { bind_oauth? && valid_user? }
 
   protected
 

@@ -15,9 +15,7 @@ RSpec.describe Users::RegistrationsController, type: :controller do
         session['oauth.data'] = {
           provider: provider,
           uid: @auth_uid,
-          info: {
-            email: 'some@email.dev',
-          }
+          info: { email: 'some@email.dev' }
         }
       end
 

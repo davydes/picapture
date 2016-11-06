@@ -11,6 +11,16 @@ RSpec.describe User, type: :model do
     end
   end
 
+  context 'devise mailer' do
+    before { @user = create :user }
+
+    it do
+      expect do
+        @user.send_devise_notification(:password_change)
+      end.to have_enqueued_job.on_queue('mailers')
+    end
+  end
+
   context 'members' do
     it { expect(subject).to respond_to :authentications }
     it { expect(subject).to respond_to :send_devise_notification}

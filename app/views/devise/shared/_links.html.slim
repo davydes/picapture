@@ -1,3 +1,11 @@
+- if devise_mapping.omniauthable? && %w(registrations sessions).include?(controller_name)
+  .social-buttons.row
+    - resource_class.omniauth_providers.each do |provider|
+      .col-xs-4.col-sm-4.col-social
+        = link_to omniauth_authorize_path(resource_name, provider), class: "btn btn-block btn-#{auth_provider_to_css(provider)}" do
+          i.fa.fa-2x(class="fa-#{auth_provider_to_css(provider)}")
+          span.hidden-xs
+  br
 - if controller_name != 'sessions'
   = link_to t(".sign_in"), new_session_path(resource_name)
   br
@@ -12,11 +20,3 @@
   br
 - if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
   = link_to t('.didn_t_receive_unlock_instructions'), new_unlock_path(resource_name)
-  br
-- if devise_mapping.omniauthable? && %w(registrations sessions).include?(controller_name)
-  .social-buttons.row
-    - resource_class.omniauth_providers.each do |provider|
-      .col-xs-4.col-sm-4.col-social
-        = link_to omniauth_authorize_path(resource_name, provider), class: "btn btn-block btn-#{auth_provider_to_css(provider)}" do
-          i.fa.fa-2x(class="fa-#{auth_provider_to_css(provider)}")
-          span.hidden-xs

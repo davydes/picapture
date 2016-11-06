@@ -1,2 +1,6 @@
 ru:
   sitename: Picapture
+  layouts:
+    navigation_links:
+      sign-in: Войти
+      sign-out: Выйти

@@ -4,11 +4,11 @@ img {
 }
 
 #logo-icon {
-  background: asset-url('camera-lens-icon.png') 100% 100% no-repeat;
-  width: 48px;
-  height: 48px;
+  background: asset-url('camera-lens-icon-43px.png') 100% 100% no-repeat;
+  width: 43px;
+  height: 43px;
   float: left;
-  margin: 1px 0;
+  margin: 3px;
 }
 
 .column {
@@ -35,6 +35,7 @@ main {
   width: 100%;
   margin-top: 51px; // accommodate the navbar
 }
+
 section {
   @extend .row;
   margin-top: 20px;
@@ -42,31 +43,42 @@ section {
 
 .authform {
   padding-top: 30px;
-  max-width: 320px;
+  max-width: 400px;
   margin: 0 auto;
+
+  form {
+    @extend .well;
+    @extend .well-lg;
+    padding-bottom: 40px;
+  }
+
+  .right {
+    float: right !important;
+  }
+
+  .button {
+    @extend .btn;
+    @extend .btn-primary;
+  }
+
+  fieldset {
+    @extend .well;
+  }
+
+  h2 {
+    text-align: center;
+  }
 }
-.authform form {
-  @extend .well;
-  @extend .well-lg;
-  padding-bottom: 40px;
-}
-.authform .right {
-  float: right !important;
-}
-.authform .button {
-  @extend .btn;
-  @extend .btn-primary;
-}
-.authform fieldset {
-  @extend .well;
-}
+
 #error_explanation:not(:empty) {
   @extend .alert;
   @extend .alert-danger;
 }
+
 #error_explanation h2 {
   font-size: 16px;
 }
+
 .button-xs {
   @extend .btn;
   @extend .btn-primary;

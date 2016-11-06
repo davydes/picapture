@@ -1,3 +1,9 @@
-li= current_user ? \
-  link_to('logout', destroy_user_session_path, method: :delete) : \
-  link_to('login', new_user_session_path)
+li
+  - if current_user
+    = link_to(destroy_user_session_path, method: :delete) do
+      ' #{t '.sign-out'}
+      span.fa.fa-sign-out
+  - else
+    = link_to(new_user_session_path) do
+      ' #{t '.sign-in'}
+      span.fa.fa-sign-in

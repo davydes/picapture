@@ -2,15 +2,16 @@ doctype html
 html
   head
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
-    title
-      = content_for?(:title) ? yield(:title) : 'Picapture'
+    title= page_title
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Picapture'}"
     == stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => 'reload'
     == javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
     == csrf_meta_tags
+    == favicon_link_tag 'camera-lens-icon-16px.png', rel: 'icon', type: 'image/png'
   body
     header
       == render 'layouts/navigation'
     main[role="main"]
-      == render 'layouts/messages'
-      == yield
+      .container
+        == render 'layouts/messages'
+        == yield

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  namespace :api do
+  namespace :api, defaults: { format: 'json' } do
     resources :photos
   end
 

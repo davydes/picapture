@@ -19,6 +19,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'kaminari'
 
 # Sprockets
 gem 'uglifier', '>= 1.3.0'

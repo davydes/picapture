@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  namespace :api do
+    resources :photos
+  end
+
   authenticate :user do
     mount Resque::Server, at: '/jobs'
   end

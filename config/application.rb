@@ -22,6 +22,7 @@ module Picapture
     config.i18n.default_locale = :ru
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**/*.{rb,yml}').to_s]
     config.active_job.queue_adapter = :resque
+    config.autoload_paths << Rails.root.join('lib')
 
     config.generators do |g|
       g.test_framework  :rspec, :fixture => true
@@ -29,6 +30,10 @@ module Picapture
       g.template_engine :slim
       g.stylesheet_engine :scss
       g.javascript_engine :coffee
+    end
+
+    config.after_initialize do
+      require Rails.root.join('app', 'controllers', 'devise_controller_mixin')
     end
   end
 end

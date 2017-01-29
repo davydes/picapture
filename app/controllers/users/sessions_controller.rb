@@ -13,4 +13,5 @@ class Users::SessionsController < Devise::SessionsController
   def valid_user?
     current_user == service.binding_user
   end
+
 end

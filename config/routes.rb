@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  get :token, controller: :tokens, action: :token
+
   namespace :api, defaults: { format: 'json' } do
     resources :photos
   end
